@@ -262,8 +262,9 @@
   /* ---------- Footer ---------- */
   footer{background:var(--navy-deep);color:rgba(251,246,236,.7);padding:3.5rem 0 2rem}
   .foot-top{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:flex-start;padding-bottom:2.2rem;border-bottom:1px solid rgba(251,246,236,.12)}
-  .foot-brand{display:flex;align-items:center;gap:.8rem}
-  .foot-brand .logo{width:52px;height:52px}
+  .foot-brand{display:flex;align-items:center;gap:.9rem}
+  .foot-brand .foot-logo{width:62px;height:62px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;flex:none}
+  .foot-brand .foot-logo img{width:48px;height:48px;object-fit:contain}
   .foot-brand .a{font-family:var(--serif);font-size:1.3rem;color:var(--cream);font-weight:600}
   .foot-brand .b{font-family:var(--sans);letter-spacing:.3em;text-transform:uppercase;font-size:.6rem;color:var(--rose-soft)}
   .foot-quote{font-family:var(--script);color:var(--rose-soft);font-size:1.6rem;max-width:24ch;text-align:right}
@@ -636,7 +637,7 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <svg class="logo"><use href="#lw-logo"/></svg>
+        <span class="foot-logo"><img src="img/logo-mark.png" alt="Little Waves Surf School logo" /></span>
         <div><div class="a">Little Waves</div><div class="b">Surf School · Costa Rica</div></div>
       </div>
       <p class="foot-quote" data-en>"Creating confident surfers through fun, safety and ocean connection."</p>

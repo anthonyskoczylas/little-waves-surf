@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Little Waves Surf School — Jacó Beach, Costa Rica</title>
+<link rel="icon" type="image/png" href="img/logo-mark-180.png" />
+<link rel="apple-touch-icon" href="img/logo-mark-180.png" />
+<meta name="description" content="Learn to surf in Jacó Beach, Costa Rica with Little Waves Surf School. Private lessons, group lessons and kids surf camps with instructor María Jesús Mora. Creating confident surfers through fun, safety and ocean connection." />
+<meta property="og:title" content="Little Waves Surf School — Jacó Beach, Costa Rica" />
+<meta property="og:description" content="Private lessons, group lessons & kids surf camps in Jacó Beach. Book your surf lesson with María." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Jost:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#FBF6EC;
+    --cream-2:#F3E9D9;
+    --cream-3:#EADFCB;
+    --navy:#1E4A63;
+    --navy-deep:#143646;
+    --rose:#CC8C79;
+    --rose-soft:#E4BBAC;
+    --ink:#2C2925;
+    --muted:#6E6256;
+    --line:rgba(30,74,99,.16);
+    --shadow:0 18px 50px -24px rgba(20,54,70,.45);
+    --serif:"Fraunces",Georgia,serif;
+    --sans:"Jost",system-ui,sans-serif;
+    --script:"Caveat",cursive;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{width:min(1180px,92vw);margin-inline:auto}
+  .script{font-family:var(--script);color:var(--rose);font-size:1.4em;line-height:1}
+  .eyebrow{
+    font-family:var(--sans);font-weight:500;letter-spacing:.32em;text-transform:uppercase;
+    font-size:.72rem;color:var(--rose);
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    font-family:var(--sans);font-weight:500;letter-spacing:.04em;
+    padding:.95rem 1.7rem;border-radius:999px;font-size:.95rem;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    cursor:pointer;border:none;white-space:nowrap;
+  }
+  .btn-primary{background:var(--navy);color:var(--cream)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow);background:var(--navy-deep)}
+  .btn-rose{background:var(--rose);color:#fff}
+  .btn-rose:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .btn-ghost{background:transparent;color:var(--navy);border:1.5px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--navy);background:rgba(30,74,99,.05)}
+  .btn svg{width:18px;height:18px}
+
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:fixed;inset:0 0 auto 0;z-index:60;
+    transition:background .3s ease, box-shadow .3s ease, padding .3s ease;
+    padding:1.1rem 0;
+  }
+  header.nav.scrolled{
+    background:rgba(251,246,236,.92);backdrop-filter:blur(12px);
+    box-shadow:0 1px 0 var(--line);padding:.65rem 0;
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+  .brand{display:flex;align-items:center;gap:.7rem}
+  .brand .logo{width:46px;height:46px;flex:none;object-fit:contain}
+  .brand-text{display:flex;flex-direction:column;line-height:1}
+  .brand-text .a{font-family:var(--serif);font-weight:600;font-size:1.15rem;letter-spacing:.02em;color:var(--navy)}
+  .brand-text .b{font-family:var(--sans);font-weight:500;letter-spacing:.34em;text-transform:uppercase;font-size:.56rem;color:var(--rose)}
+  .nav.scrolled .brand-text .a,.nav.scrolled .nav-links a{color:var(--navy)}
+  .nav-links{display:flex;align-items:center;gap:1.9rem}
+  .nav-links a{font-weight:400;font-size:.92rem;letter-spacing:.02em;color:var(--navy);position:relative;transition:color .2s}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;height:1.5px;width:0;background:var(--rose);transition:width .25s}
+  .nav-links a:hover::after{width:100%}
+  .nav-links a.btn-primary,.nav.scrolled .nav-links a.btn-primary{color:var(--cream)}
+  .nav-links a.btn::after{display:none}
+  .nav-right{display:flex;align-items:center;gap:1rem}
+  .lang{
+    display:flex;border:1.5px solid var(--line);border-radius:999px;overflow:hidden;font-size:.78rem;
+    font-weight:500;background:rgba(251,246,236,.5);
+  }
+  .lang button{border:none;background:transparent;padding:.42rem .8rem;cursor:pointer;color:var(--muted);font-family:var(--sans);letter-spacing:.06em;transition:.2s}
+  .lang button.active{background:var(--navy);color:var(--cream)}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.4rem}
+  .burger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate}
+  .hero-bg{position:absolute;inset:0;z-index:-2}
+  .hero-bg .sky{position:absolute;inset:0;background:
+      radial-gradient(120% 80% at 75% 8%, #F4D9C9 0%, rgba(244,217,201,0) 42%),
+      linear-gradient(178deg,#bfe0e6 0%,#7fb8c4 34%,#3e7e94 64%,#1e4a63 100%);}
+  .hero-bg .sun{position:absolute;top:14%;right:18%;width:120px;height:120px;border-radius:50%;
+      background:radial-gradient(circle,#F6E2C8 0%,#EBC6A0 55%,rgba(235,198,160,0) 72%);filter:blur(2px)}
+  .hero-waves{position:absolute;left:0;right:0;bottom:-2px;z-index:-1}
+  .hero-waves svg{width:100%;height:auto;display:block}
+  .hero-grain{position:absolute;inset:0;z-index:-1;opacity:.5;mix-blend-mode:soft-light;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+  .hero-overlay{position:absolute;inset:0;background:
+      linear-gradient(180deg,rgba(20,54,70,.42) 0%,rgba(20,54,70,.18) 32%,rgba(20,54,70,.5) 72%,rgba(20,54,70,.86) 100%),
+      linear-gradient(90deg,rgba(20,54,70,.62) 0%,rgba(20,54,70,.12) 52%,rgba(20,54,70,0) 100%);}
+  .about-photo img,.incl-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .about-photo img{object-position:center 28%}
+  .gal-grid .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero-inner{padding-top:7rem}
+  .hero .eyebrow{color:#F4D9C9}
+  .hero h1{
+    color:var(--cream);font-size:clamp(3rem,8.5vw,6.4rem);margin:.7rem 0 .3rem;font-weight:500;
+    text-shadow:0 14px 40px rgba(10,30,40,.35);
+  }
+  .hero h1 .light{font-style:italic;font-weight:400;color:#F4D9C9}
+  .hero .tagline{
+    color:rgba(251,246,236,.95);font-size:clamp(1.05rem,2.2vw,1.4rem);max-width:34ch;
+    font-weight:300;margin-bottom:.4rem;
+  }
+  .hero .loc{display:flex;align-items:center;gap:.5rem;color:rgba(251,246,236,.85);font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2rem;font-weight:400}
+  .hero .loc svg{width:16px;height:16px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:.9rem}
+  .hero .btn-ghost{color:var(--cream);border-color:rgba(251,246,236,.4)}
+  .hero .btn-ghost:hover{border-color:var(--cream);background:rgba(251,246,236,.12)}
+
+  /* ---------- Section frame ---------- */
+  section{position:relative}
+  .sec{padding:clamp(4.5rem,9vw,7.5rem) 0}
+  .sec-head{max-width:60ch;margin-bottom:3rem}
+  .sec-head.center{margin-inline:auto;text-align:center}
+  .sec-head h2{font-size:clamp(2rem,4.6vw,3.2rem);margin:.6rem 0 .8rem;color:var(--navy)}
+  .sec-head p{color:var(--muted);font-size:1.08rem;font-weight:300;max-width:52ch}
+  .sec-head.center p{margin-inline:auto}
+
+  /* ---------- About ---------- */
+  .about{background:var(--cream)}
+  .about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  .about-photo{
+    position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);
+    background:linear-gradient(160deg,#7fb8c4,#1e4a63);
+  }
+  .about-photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;color:rgba(251,246,236,.85);text-align:center;padding:2rem}
+  .about-photo .ph svg{width:54px;height:54px;opacity:.85}
+  .about-photo .ph span{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
+  .about-photo .badge{
+    position:absolute;left:1.2rem;bottom:1.2rem;background:var(--cream);color:var(--navy);
+    border-radius:14px;padding:.7rem 1.1rem;box-shadow:var(--shadow);
+  }
+  .about-photo .badge b{font-family:var(--serif);font-size:1.5rem;display:block;line-height:1}
+  .about-photo .badge small{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rose)}
+  .about-body h2{font-size:clamp(2rem,4.6vw,3rem);color:var(--navy);margin:.5rem 0 1.1rem}
+  .about-body p{color:var(--muted);margin-bottom:1.1rem;font-weight:300;font-size:1.06rem}
+  .about-sign{font-family:var(--script);font-size:2rem;color:var(--rose);margin-top:.4rem}
+  .about-meta{display:flex;gap:2rem;margin-top:2rem;flex-wrap:wrap}
+  .about-meta div b{font-family:var(--serif);font-size:1.7rem;color:var(--navy);display:block;line-height:1}
+  .about-meta div span{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  /* ---------- Lessons ---------- */
+  .lessons{position:relative;overflow:hidden;background:var(--navy-deep)}
+  .lessons-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .lessons-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(16,42,55,.74) 0%,rgba(16,42,55,.55) 42%,rgba(16,42,55,.82) 100%)}
+  .lessons .wrap{position:relative;z-index:2}
+  .lessons .sec-head h2{color:var(--cream)}
+  .lessons .sec-head p{color:rgba(251,246,236,.82)}
+  .lessons .eyebrow{color:var(--rose-soft)}
+  @media (prefers-reduced-motion: reduce){.lessons-video{display:none}}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+  .card{
+    background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:2rem 1.6rem;
+    display:flex;flex-direction:column;gap:.7rem;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+  .card .ic{width:58px;height:58px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(204,140,121,.14);margin-bottom:.4rem}
+  .card .ic svg{width:32px;height:32px;stroke:var(--navy);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .card h3{font-size:1.32rem;color:var(--navy)}
+  .card p{color:var(--muted);font-size:.96rem;font-weight:300;flex:1}
+  .card .price{font-family:var(--serif);color:var(--rose);font-size:1.05rem;font-weight:600}
+  .card .price small{color:var(--muted);font-family:var(--sans);font-weight:300;font-size:.78rem}
+
+  /* ---------- Values band ---------- */
+  .values{background:var(--navy);color:var(--cream);text-align:center;padding:clamp(3rem,6vw,4.5rem) 0}
+  .values .row{display:flex;align-items:center;justify-content:center;gap:clamp(1rem,4vw,3rem);flex-wrap:wrap}
+  .values .row span{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.6rem);letter-spacing:.04em}
+  .values .row b{color:var(--rose-soft);font-size:1rem}
+  .values p{margin-top:1rem;color:rgba(251,246,236,.7);font-weight:300;font-style:italic;font-family:var(--serif)}
+
+  /* ---------- Included ---------- */
+  .included{background:var(--cream-2)}
+  .incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .incl-list{list-style:none;display:grid;gap:1.1rem}
+  .incl-list li{display:flex;gap:1rem;align-items:flex-start}
+  .incl-list .tick{flex:none;width:34px;height:34px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center}
+  .incl-list .tick svg{width:16px;height:16px;stroke:var(--cream);stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .incl-list b{color:var(--navy);font-weight:500;display:block}
+  .incl-list span{color:var(--muted);font-size:.95rem;font-weight:300}
+  .incl-photo{aspect-ratio:1/1;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);
+      background:linear-gradient(150deg,#E4BBAC,#CC8C79 60%,#1e4a63);position:relative}
+  .incl-photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:rgba(255,255,255,.9);text-align:center;padding:2rem}
+  .incl-photo .ph svg{width:48px;height:48px}
+  .incl-photo .ph span{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+
+  /* ---------- Gallery ---------- */
+  .gallery{background:var(--cream)}
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+  .gal-grid .tile{border-radius:14px;overflow:hidden;position:relative;aspect-ratio:3/2;background:var(--cream-3)}
+  .gal-grid .tile.ph-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--navy);background:linear-gradient(150deg,#e9f0f1,#dde9eb);border:1.5px dashed rgba(30,74,99,.28)}
+  .gal-grid .tile.ph-slot svg{width:30px;height:30px;stroke:var(--navy);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.55}
+  .gal-grid .tile.ph-slot span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.6}
+  .gal-note{text-align:center;color:var(--muted);font-size:.9rem;margin-top:1.4rem;font-style:italic}
+
+  /* ---------- Testimonials ---------- */
+  .testi{background:var(--cream-2)}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .quote{background:var(--cream);border-radius:18px;padding:2rem;border:1px solid var(--line)}
+  .quote .stars{color:var(--rose);letter-spacing:.2em;margin-bottom:.8rem;font-size:.9rem}
+  .quote p{font-family:var(--serif);font-style:italic;color:var(--ink);font-size:1.1rem;margin-bottom:1rem}
+  .quote .who{display:flex;align-items:center;gap:.7rem}
+  .quote .av{width:38px;height:38px;border-radius:50%;background:var(--navy);color:var(--cream);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1rem}
+  .quote .who b{color:var(--navy);font-weight:500;font-size:.95rem;display:block;line-height:1.2}
+  .quote .who span{color:var(--muted);font-size:.8rem}
+
+  /* ---------- Booking ---------- */
+  .book{background:var(--navy);color:var(--cream);position:relative;overflow:hidden}
+  .book::before{content:"";position:absolute;inset:auto -10% -40% -10%;height:60%;
+      background:radial-gradient(60% 100% at 50% 100%,rgba(204,140,121,.35),transparent 70%)}
+  .book-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,5vw,4.5rem);align-items:start;position:relative}
+  .book .eyebrow{color:var(--rose-soft)}
+  .book h2{color:var(--cream);font-size:clamp(2rem,4.6vw,3.2rem);margin:.6rem 0 1rem}
+  .book-lead{color:rgba(251,246,236,.82);font-weight:300;margin-bottom:1.8rem;font-size:1.08rem}
+  .book-contact{display:grid;gap:1rem;margin-top:.5rem}
+  .book-contact a{display:flex;align-items:center;gap:.9rem;color:var(--cream);font-size:1.05rem}
+  .book-contact a .ci{width:42px;height:42px;border-radius:12px;background:rgba(251,246,236,.12);display:flex;align-items:center;justify-content:center;flex:none}
+  .book-contact a .ci svg{width:20px;height:20px;stroke:var(--rose-soft);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .book-contact a small{display:block;color:rgba(251,246,236,.55);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+  .form{background:var(--cream);border-radius:22px;padding:clamp(1.6rem,3vw,2.4rem);box-shadow:var(--shadow)}
+  .form h3{color:var(--navy);font-size:1.5rem;margin-bottom:.3rem}
+  .form .sub{color:var(--muted);font-size:.92rem;margin-bottom:1.4rem;font-weight:300}
+  .field{margin-bottom:1rem}
+  .field label{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;font-weight:500}
+  .field input,.field select,.field textarea{
+    width:100%;padding:.8rem 1rem;border:1.5px solid var(--line);border-radius:12px;
+    font-family:var(--sans);font-size:.98rem;color:var(--ink);background:var(--cream);transition:border-color .2s, box-shadow .2s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(30,74,99,.1)}
+  .field textarea{resize:vertical;min-height:74px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .form .btn-rose{width:100%;justify-content:center;margin-top:.6rem}
+  .form-note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:.8rem;font-weight:300}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy-deep);color:rgba(251,246,236,.7);padding:3.5rem 0 2rem}
+  .foot-top{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:flex-start;padding-bottom:2.2rem;border-bottom:1px solid rgba(251,246,236,.12)}
+  .foot-brand{display:flex;align-items:center;gap:.8rem}
+  .foot-brand .logo{width:52px;height:52px}
+  .foot-brand .a{font-family:var(--serif);font-size:1.3rem;color:var(--cream);font-weight:600}
+  .foot-brand .b{font-family:var(--sans);letter-spacing:.3em;text-transform:uppercase;font-size:.6rem;color:var(--rose-soft)}
+  .foot-quote{font-family:var(--script);color:var(--rose-soft);font-size:1.6rem;max-width:24ch;text-align:right}
+  .foot-links{display:flex;gap:2.5rem;flex-wrap:wrap;padding-top:1.8rem}
+  .foot-col h4{font-family:var(--sans);font-weight:500;letter-spacing:.1em;text-transform:uppercase;font-size:.74rem;color:var(--rose-soft);margin-bottom:.8rem}
+  .foot-col a,.foot-col p{display:block;color:rgba(251,246,236,.7);font-size:.92rem;font-weight:300;margin-bottom:.4rem;transition:color .2s}
+  .foot-col a:hover{color:var(--cream)}
+  .foot-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2rem;font-size:.8rem;color:rgba(251,246,236,.45)}
+
+  /* floating WhatsApp */
+  .wa-float{position:fixed;right:1.3rem;bottom:1.3rem;z-index:70;width:58px;height:58px;border-radius:50%;
+      background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px -8px rgba(37,211,102,.6);
+      transition:transform .25s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* i18n — hide the inactive language, keep each element's natural display */
+  html[lang="en"] [data-es]{display:none !important}
+  html[lang="es"] [data-en]{display:none !important}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:900px){
+    .nav-links{
+      position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--cream);
+      flex-direction:column;justify-content:center;gap:1.8rem;padding:2rem;
+      transform:translateX(100%);transition:transform .35s ease;box-shadow:var(--shadow);
+    }
+    .nav-links.open{transform:none}
+    .nav-links a{font-size:1.2rem}
+    .burger{display:flex}
+    .about-grid,.incl-grid,.book-grid{grid-template-columns:1fr}
+    .about-photo{aspect-ratio:4/3;max-width:480px}
+    .cards{grid-template-columns:1fr 1fr}
+    .testi-grid{grid-template-columns:1fr}
+    .gal-grid{grid-template-columns:repeat(2,1fr)}
+    .foot-quote{text-align:left}
+  }
+  @media(max-width:560px){
+    .cards{grid-template-columns:1fr}
+    .two{grid-template-columns:1fr}
+    .hero-inner{padding-top:6rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ LOGO (reusable inline) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lw-logo" viewBox="0 0 100 100">
+    <circle cx="50" cy="48" r="40" fill="none" stroke="#1E4A63" stroke-width="2.2"/>
+    <circle cx="62" cy="30" r="6.5" fill="#CC8C79"/>
+    <!-- palm -->
+    <path d="M30 70 C31 56 33 46 35 40" stroke="#1E4A63" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M35 40 C28 34 22 33 17 35 M35 40 C30 31 30 25 32 21 M35 40 C41 33 47 31 52 32 M35 40 C40 35 45 34 49 35" stroke="#1E4A63" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <!-- wave -->
+    <path d="M46 72 C50 60 58 50 70 50 C64 52 60 58 60 64 C66 58 74 57 80 60 C72 60 66 66 64 72 Z" fill="#1E4A63"/>
+    <path d="M48 72 C54 64 60 60 68 60" stroke="#FBF6EC" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="ic-wa" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.515zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></symbol>
+
+  <symbol id="ic-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand" aria-label="Little Waves Surf School">
+      <img class="logo" src="img/logo-mark.png" alt="Little Waves Surf School logo" />
+      <span class="brand-text"><span class="a">Little Waves</span><span class="b">Surf School</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#lessons" data-en>Lessons</a><a href="#lessons" data-es>Clases</a>
+      <a href="#about" data-en>Meet María</a><a href="#about" data-es>Conoce a María</a>
+      <a href="#included" data-en>What's Included</a><a href="#included" data-es>Qué Incluye</a>
+      <a href="#gallery" data-en>Gallery</a><a href="#gallery" data-es>Galería</a>
+      <a href="#book" class="btn btn-primary" style="padding:.6rem 1.2rem" data-en>Book a Lesson</a>
+      <a href="#book" class="btn btn-primary" style="padding:.6rem 1.2rem" data-es>Reservar</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button id="enBtn" class="active" onclick="setLang('en')">EN</button>
+        <button id="esBtn" onclick="setLang('es')">ES</button>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#ic-wa"/></svg></a>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img class="hero-photo" src="img/hero.jpg" alt="Surf lesson heading into the waves at Jacó Beach, Costa Rica" />
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-waves">
+    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 120 C220 70 360 170 600 130 C840 90 980 180 1200 140 C1320 118 1390 130 1440 120 L1440 220 L0 220 Z" fill="#1e4a63" opacity=".55"/>
+      <path d="M0 160 C260 120 380 200 640 165 C900 130 1040 205 1280 170 C1360 158 1410 162 1440 160 L1440 220 L0 220 Z" fill="#143646"/>
+    </svg>
+  </div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow" data-en>Jacó Beach · Costa Rica</p>
+    <p class="eyebrow" data-es>Playa Jacó · Costa Rica</p>
+    <h1 data-en>Little Waves,<br><span class="light">big confidence.</span></h1>
+    <h1 data-es>Pequeñas olas,<br><span class="light">gran confianza.</span></h1>
+    <p class="tagline" data-en>Creating confident surfers through fun, safety and ocean connection.</p>
+    <p class="tagline" data-es>Creamos surfistas seguros a través de la diversión, la seguridad y la conexión con el mar.</p>
+    <p class="loc"><svg><use href="#ic-pin"/></svg><span data-en>Learn to surf in warm Pacific water</span><span data-es>Aprende a surfear en aguas cálidas del Pacífico</span></p>
+    <div class="hero-cta">
+      <a href="#book" class="btn btn-rose"><svg><use href="#ic-wa"/></svg><span data-en>Book a Lesson</span><span data-es>Reservar Clase</span></a>
+      <a href="#lessons" class="btn btn-ghost"><span data-en>See Lessons</span><span data-es>Ver Clases</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="sec about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo reveal">
+      <img src="img/maria.jpg" alt="María Jesús Mora, surf instructor at Little Waves Surf School" />
+      <div class="badge"><b>María</b><small data-en>Your instructor</small><small data-es>Tu instructora</small></div>
+    </div>
+    <div class="about-body reveal">
+      <p class="eyebrow" data-en>Your Instructor</p>
+      <p class="eyebrow" data-es>Tu Instructora</p>
+      <h2 data-en>Meet María Jesús Mora</h2>
+      <h2 data-es>Conoce a María Jesús Mora</h2>
+      <p data-en>Born and raised on the Pacific coast of Costa Rica, María turned a lifetime in the water into a calling: helping people feel safe, capable and stoked on a surfboard. Whether it's your very first wave or your hundredth, she meets you where you are.</p>
+      <p data-es>Nacida y criada en la costa pacífica de Costa Rica, María convirtió toda una vida en el mar en su vocación: ayudar a las personas a sentirse seguras, capaces y felices sobre una tabla. Ya sea tu primera ola o la número cien, ella te acompaña a tu ritmo.</p>
+      <p data-en>Every lesson starts with ocean safety and ends with a smile. Small groups, patient coaching, and a deep love for the sea — that's the Little Waves way.</p>
+      <p data-es>Cada clase empieza con seguridad en el mar y termina con una sonrisa. Grupos pequeños, enseñanza paciente y un profundo amor por el océano: así es el estilo Little Waves.</p>
+      <p class="about-sign">— María</p>
+      <div class="about-meta">
+        <div><b>1-on-1</b><span data-en>Personal attention</span><span data-es>Atención personal</span></div>
+        <div><b>All ages</b><span data-en>Kids & adults</span><span data-es>Niños y adultos</span></div>
+        <div><b>EN / ES</b><span data-en>Bilingual coaching</span><span data-es>Clases bilingües</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LESSONS ============ -->
+<section class="sec lessons" id="lessons">
+  <video class="lessons-video" autoplay muted loop playsinline preload="metadata" poster="img/lessons-wave-poster.jpg">
+    <source src="img/lessons-wave.mp4" type="video/mp4" />
+  </video>
+  <div class="lessons-overlay"></div>
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <p class="eyebrow" data-en>What We Offer</p>
+      <p class="eyebrow" data-es>Lo Que Ofrecemos</p>
+      <h2 data-en>Lessons for every wave</h2>
+      <h2 data-es>Clases para cada ola</h2>
+      <p data-en>From your first time standing up to fine-tuning your turns — pick the session that fits you.</p>
+      <p data-es>Desde tu primera vez de pie hasta perfeccionar tus giros: elige la sesión perfecta para ti.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M5 21c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div>
+        <h3 data-en>Private Lessons</h3><h3 data-es>Clases Privadas</h3>
+        <p data-en>One-on-one coaching built entirely around your goals, your pace and your level. A focused 90-minute session — the fastest way to progress.</p>
+        <p data-es>Clases individuales diseñadas según tus metas, tu ritmo y tu nivel. Una sesión enfocada de 90 minutos — la forma más rápida de avanzar.</p>
+        <span class="price" data-en>$80 <small>/ 90-min private session</small></span>
+        <span class="price" data-es>$80 <small>/ sesión privada de 90 min</small></span>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M7 13l-2 7M17 13l2 7M12 13v7"/><path d="M4 13c2-3 5-3 8-3s6 0 8 3"/><circle cx="12" cy="6" r="2"/></svg></div>
+        <h3 data-en>Group Lessons</h3><h3 data-es>Clases Grupales</h3>
+        <p data-en>Learn alongside friends or family in a small, supportive group. Fun, social and a perfect shared first wave — 90-minute sessions.</p>
+        <p data-es>Aprende junto a amigos o familia en un grupo pequeño y acogedor. Divertido, social y la primera ola perfecta para compartir — sesiones de 90 minutos.</p>
+        <span class="price" data-en>$140 for 2 <small>· $65/person for 3+</small></span>
+        <span class="price" data-es>$140 por 2 <small>· $65/persona para 3+</small></span>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="6" r="2"/><circle cx="16" cy="7" r="1.7"/><path d="M4 20c0-3 2.5-5 5-5s5 2 5 5M13 20c0-2.3 1.8-4 4-4s4 1.7 4 4"/></svg></div>
+        <h3 data-en>Kids Surf Camps</h3><h3 data-es>Campamentos Infantiles</h3>
+        <p data-en>Confidence, water safety and ocean play for groms. Patient, fun and built to keep little surfers smiling.</p>
+        <p data-es>Confianza, seguridad y juego en el mar para los pequeños. Paciente, divertido y pensado para que sonrían.</p>
+        <span class="price" data-en>Ask about camps</span>
+        <span class="price" data-es>Pregunta por campamentos</span>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M3 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><circle cx="12" cy="6" r="3"/></svg></div>
+        <h3 data-en>Ocean Safety</h3><h3 data-es>Seguridad en el Mar</h3>
+        <p data-en>Reading waves, currents and how to stay safe. Built into every lesson so you surf with awareness, not fear.</p>
+        <p data-es>Leer las olas, las corrientes y cómo mantenerte a salvo. Incluido en cada clase para que surfees con conciencia, no con miedo.</p>
+        <span class="price" data-en>In every lesson</span>
+        <span class="price" data-es>En cada clase</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VALUES BAND ============ -->
+<section class="values">
+  <div class="wrap">
+    <div class="row">
+      <span data-en>Learn</span><span data-es>Aprende</span><b>●</b>
+      <span data-en>Play</span><span data-es>Juega</span><b>●</b>
+      <span data-en>Surf</span><span data-es>Surfea</span><b>●</b>
+      <span data-en>Connect</span><span data-es>Conecta</span>
+    </div>
+    <p data-en>The four things every Little Waves session is built on.</p>
+    <p data-es>Los cuatro pilares de cada sesión de Little Waves.</p>
+  </div>
+</section>
+
+<!-- ============ INCLUDED ============ -->
+<section class="sec included" id="included">
+  <div class="wrap incl-grid">
+    <div class="incl-photo reveal">
+      <img src="img/teaching.jpg" alt="María coaching a young surfer on the beach in Jacó" />
+    </div>
+    <div class="incl-body reveal">
+      <p class="eyebrow" data-en>No Stress, Just Surf</p>
+      <p class="eyebrow" data-es>Sin Estrés, Solo Surf</p>
+      <h2 style="color:var(--navy);font-size:clamp(1.9rem,4.4vw,2.8rem);margin:.5rem 0 1.4rem" data-en>Everything you need is ready</h2>
+      <h2 style="color:var(--navy);font-size:clamp(1.9rem,4.4vw,2.8rem);margin:.5rem 0 1.4rem" data-es>Todo lo que necesitas, listo</h2>
+      <ul class="incl-list">
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><div><b data-en>Surfboard & rash guard</b><b data-es>Tabla y licra</b><span data-en>Gear sized for you, included with every lesson.</span><span data-es>Equipo a tu medida, incluido en cada clase.</span></div></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><div><b data-en>Safety briefing first</b><b data-es>Charla de seguridad primero</b><span data-en>You'll always know the conditions before you paddle out.</span><span data-es>Siempre conocerás las condiciones antes de entrar.</span></div></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><div><b data-en>Warm water, gentle waves</b><b data-es>Agua cálida, olas suaves</b><span data-en>Jacó's beach break is ideal for first-timers and improvers.</span><span data-es>El beach break de Jacó es ideal para principiantes y para mejorar.</span></div></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><div><b data-en>Photos of your session</b><b data-es>Fotos de tu sesión</b><span data-en>Take home proof of your first wave (on request).</span><span data-es>Llévate la prueba de tu primera ola (a pedido).</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="sec gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <p class="eyebrow" data-en>The Stoke</p>
+      <p class="eyebrow" data-es>La Vibra</p>
+      <h2 data-en>Moments in the water</h2>
+      <h2 data-es>Momentos en el agua</h2>
+    </div>
+    <div class="gal-grid reveal">
+      <div class="tile"><img src="img/g1-ride.jpg" alt="Surfer riding a wave in Jacó" loading="lazy" /></div>
+      <div class="tile"><img src="img/g2-walk.jpg" alt="Students carrying surfboards to the water" loading="lazy" /></div>
+      <div class="tile"><img src="img/g3-beach.jpg" alt="Surf lesson practice on the beach" loading="lazy" /></div>
+      <div class="tile"><img src="img/g4-water.jpg" alt="Walking into the surf with longboards" loading="lazy" /></div>
+      <div class="tile"><img src="img/g5-ocean.jpg" alt="The Pacific lineup at Jacó Beach" loading="lazy" /></div>
+      <div class="tile"><img src="img/g6.jpg" alt="Surfer riding a clean wave in Jacó" loading="lazy" /></div>
+      <div class="tile"><img src="img/g7.jpg" alt="Surfer carving a turn off the wave" loading="lazy" /></div>
+      <div class="tile"><img src="img/g8.jpg" alt="Riding down the line at Jacó Beach" loading="lazy" /></div>
+    </div>
+    <p class="gal-note" data-en>Real moments from Little Waves lessons — follow <strong>@littlewavessurfing</strong> for more.</p>
+    <p class="gal-note" data-es>Momentos reales de las clases de Little Waves — sigue <strong>@littlewavessurfing</strong> para ver más.</p>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="sec testi">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <p class="eyebrow" data-en>Happy Surfers</p>
+      <p class="eyebrow" data-es>Surfistas Felices</p>
+      <h2 data-en>Words from the lineup</h2>
+      <h2 data-es>Palabras desde el line-up</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p data-en>"I stood up on my very first wave. María made me feel safe the whole time — best morning of our trip."</p>
+        <p data-es>"Me paré en mi primera ola. María me hizo sentir segura todo el tiempo — la mejor mañana de nuestro viaje."</p>
+        <div class="who"><div class="av">S</div><div><b>Sarah M.</b><span data-en>Visitor · USA</span><span data-es>Visitante · EE.UU.</span></div></div>
+      </div>
+      <div class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p data-en>"My kids didn't want to leave the water. Patient, fun and so good with children. Highly recommend."</p>
+        <p data-es>"Mis hijos no querían salir del agua. Paciente, divertida y excelente con los niños. Muy recomendada."</p>
+        <div class="who"><div class="av">D</div><div><b>David & family</b><span data-en>Canada</span><span data-es>Canadá</span></div></div>
+      </div>
+      <div class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p data-en>"Came as a total beginner, left actually surfing. The ocean safety part gave me real confidence."</p>
+        <p data-es>"Llegué siendo principiante total y salí surfeando de verdad. La parte de seguridad me dio mucha confianza."</p>
+        <div class="who"><div class="av">L</div><div><b>Lena K.</b><span data-en>Visitor · Germany</span><span data-es>Visitante · Alemania</span></div></div>
+      </div>
+    </div>
+    <p class="gal-note" style="margin-top:1.6rem" data-en>Sample reviews — real guest words go here once Maria collects them.</p>
+    <p class="gal-note" style="margin-top:1.6rem" data-es>Reseñas de ejemplo — aquí irán palabras reales de clientes cuando María las recopile.</p>
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section class="sec book" id="book">
+  <div class="wrap book-grid">
+    <div class="book-left reveal">
+      <p class="eyebrow" data-en>Limited Spots Daily</p>
+      <p class="eyebrow" data-es>Cupos Limitados Cada Día</p>
+      <h2 data-en>Reserve your wave</h2>
+      <h2 data-es>Reserva tu ola</h2>
+      <p class="book-lead" data-en>Tell María a little about who's surfing and when — she'll confirm your spot on WhatsApp, usually within a few hours.</p>
+      <p class="book-lead" data-es>Cuéntale a María quién va a surfear y cuándo — ella confirmará tu cupo por WhatsApp, normalmente en pocas horas.</p>
+      <div class="book-contact">
+        <a id="waLink" href="#" target="_blank" rel="noopener">
+          <span class="ci"><svg><use href="#ic-wa"/></svg></span>
+          <span><small>WhatsApp</small>+506 7170-0672</span>
+        </a>
+        <a href="https://instagram.com/littlewavessurfing" target="_blank" rel="noopener">
+          <span class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
+          <span><small>Instagram</small>@littlewavessurfing</span>
+        </a>
+        <a href="#top">
+          <span class="ci"><svg><use href="#ic-pin"/></svg></span>
+          <span><small data-en>Location</small><small data-es>Ubicación</small>Jacó Beach, Costa Rica</span>
+        </a>
+      </div>
+    </div>
+
+    <form class="form reveal" id="bookForm" onsubmit="return sendBooking(event)">
+      <h3 data-en>Request a Lesson</h3><h3 data-es>Solicitar una Clase</h3>
+      <p class="sub" data-en>No payment now — this just opens WhatsApp with your details ready to send.</p>
+      <p class="sub" data-es>Sin pago ahora — esto abre WhatsApp con tus datos listos para enviar.</p>
+      <div class="field">
+        <label data-en>Your name</label><label data-es>Tu nombre</label>
+        <input id="f-name" required placeholder="María / John" />
+      </div>
+      <div class="two">
+        <div class="field">
+          <label data-en>Lesson type</label><label data-es>Tipo de clase</label>
+          <select id="f-type">
+            <option data-en>Private lesson</option>
+            <option data-en>Group lesson</option>
+            <option data-en>Kids surf camp</option>
+            <option data-en>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label data-en>How many surfers?</label><label data-es>¿Cuántos surfistas?</label>
+          <input id="f-people" type="number" min="1" value="1" />
+        </div>
+      </div>
+      <div class="two">
+        <div class="field">
+          <label data-en>Preferred date</label><label data-es>Fecha preferida</label>
+          <input id="f-date" type="date" />
+        </div>
+        <div class="field">
+          <label data-en>Level</label><label data-es>Nivel</label>
+          <select id="f-level">
+            <option data-en>First time / beginner</option>
+            <option data-en>Some experience</option>
+            <option data-en>Intermediate +</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label data-en>Anything else? (ages, hotel, questions)</label><label data-es>¿Algo más? (edades, hotel, preguntas)</label>
+        <textarea id="f-msg" placeholder="..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-rose"><svg><use href="#ic-wa"/></svg><span data-en>Send on WhatsApp</span><span data-es>Enviar por WhatsApp</span></button>
+      <p class="form-note" data-en>Opens WhatsApp · No charge until your lesson is confirmed.</p>
+      <p class="form-note" data-es>Abre WhatsApp · Sin cargo hasta confirmar tu clase.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <svg class="logo"><use href="#lw-logo"/></svg>
+        <div><div class="a">Little Waves</div><div class="b">Surf School · Costa Rica</div></div>
+      </div>
+      <p class="foot-quote" data-en>"Creating confident surfers through fun, safety and ocean connection."</p>
+      <p class="foot-quote" data-es>"Creamos surfistas seguros a través de la diversión, la seguridad y el mar."</p>
+    </div>
+    <div class="foot-links">
+      <div class="foot-col">
+        <h4 data-en>Explore</h4><h4 data-es>Explora</h4>
+        <a href="#lessons" data-en>Lessons</a><a href="#lessons" data-es>Clases</a>
+        <a href="#about" data-en>Meet María</a><a href="#about" data-es>Conoce a María</a>
+        <a href="#book" data-en>Book a Lesson</a><a href="#book" data-es>Reservar</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-en>Lessons</h4><h4 data-es>Clases</h4>
+        <p data-en>Private Lessons</p><p data-es>Clases Privadas</p>
+        <p data-en>Group Lessons</p><p data-es>Clases Grupales</p>
+        <p data-en>Kids Surf Camps</p><p data-es>Campamentos Infantiles</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-en>Connect</h4><h4 data-es>Contacto</h4>
+        <a id="waFoot" href="#" target="_blank" rel="noopener">WhatsApp +506 7170-0672</a>
+        <a href="https://instagram.com/littlewavessurfing" target="_blank" rel="noopener">@littlewavessurfing</a>
+        <p>Jacó Beach, Costa Rica</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Little Waves Surf School · María Jesús Mora</span>
+      <span data-en>Made with love in Jacó · Pura Vida</span>
+      <span data-es>Hecho con amor en Jacó · Pura Vida</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const WA = "50671700672"; // María's WhatsApp
+
+  // ---- language ----
+  function setLang(l){
+    document.documentElement.lang = l;
+    document.getElementById('enBtn').classList.toggle('active', l==='en');
+    document.getElementById('esBtn').classList.toggle('active', l==='es');
+    try{ localStorage.setItem('lw_lang', l); }catch(e){}
+  }
+  (function(){
+    let saved='en';
+    try{ saved = localStorage.getItem('lw_lang') || 'en'; }catch(e){}
+    setLang(saved);
+  })();
+
+  // ---- base whatsapp links ----
+  const greet = () => document.documentElement.lang==='es'
+    ? "Hola María, me gustaría reservar una clase de surf con Little Waves."
+    : "Hi María, I'd like to book a surf lesson with Little Waves.";
+  function refreshWaLinks(){
+    const url = "https://wa.me/"+WA+"?text="+encodeURIComponent(greet());
+    ['waFloat','waLink','waFoot'].forEach(id=>{const el=document.getElementById(id); if(el) el.href=url;});
+  }
+  refreshWaLinks();
+  document.getElementById('enBtn').addEventListener('click',refreshWaLinks);
+  document.getElementById('esBtn').addEventListener('click',refreshWaLinks);
+
+  // ---- booking form -> whatsapp ----
+  function sendBooking(e){
+    e.preventDefault();
+    const es = document.documentElement.lang==='es';
+    const v = id => (document.getElementById(id).value || '').trim();
+    const typeSel = document.getElementById('f-type');
+    const levelSel = document.getElementById('f-level');
+    const typeTxt = typeSel.options[typeSel.selectedIndex].text;
+    const levelTxt = levelSel.options[levelSel.selectedIndex].text;
+    let m;
+    if(es){
+      m = `Hola María, me gustaría reservar una clase de surf con Little Waves.\n\n`+
+          `• Nombre: ${v('f-name')}\n`+
+          `• Clase: ${typeTxt}\n`+
+          `• Surfistas: ${v('f-people')}\n`+
+          `• Fecha: ${v('f-date')||'(flexible)'}\n`+
+          `• Nivel: ${levelTxt}\n`+
+          (v('f-msg')?`• Notas: ${v('f-msg')}\n`:``)+
+          `\n¡Gracias!`;
+    }else{
+      m = `Hi María, I'd like to book a surf lesson with Little Waves.\n\n`+
+          `• Name: ${v('f-name')}\n`+
+          `• Lesson: ${typeTxt}\n`+
+          `• Surfers: ${v('f-people')}\n`+
+          `• Date: ${v('f-date')||'(flexible)'}\n`+
+          `• Level: ${levelTxt}\n`+
+          (v('f-msg')?`• Notes: ${v('f-msg')}\n`:``)+
+          `\nThanks!`;
+    }
+    window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(m), "_blank");
+    return false;
+  }
+
+  // ---- nav scroll + mobile ----
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', ()=> nav.classList.toggle('scrolled', scrollY>40));
+  const burger = document.getElementById('burger'), links = document.getElementById('navLinks');
+  burger.addEventListener('click', ()=> links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> links.classList.remove('open')));
+
+  // ---- reveal on scroll ----
+  const io = new IntersectionObserver((es)=>es.forEach(en=>{ if(en.isIntersecting){en.target.classList.add('in'); io.unobserve(en.target);} }), {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
